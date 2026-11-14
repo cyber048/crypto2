@@ -258,3 +258,333 @@ html[data-theme=ocean] .topbar{background:#0a1226cc;border-color:#223457}
 .nrow{display:flex;gap:12px;align-items:center;padding:10px 6px;border-bottom:1px solid var(--line);font-size:14px}.nrow.un{background:linear-gradient(90deg,#2ed38a14,transparent)}.nrow small{display:block;color:var(--muted)}.nrow>i{font-style:normal;width:30px;height:30px;border-radius:9px;display:grid;place-items:center;flex:none}.nrow>i.up{background:#2ed38a33;color:#2ed38a}.nrow>i.down{background:#ff6b7a33;color:#ff6b7a}.nrow>i.fill{background:#6aa7ff33;color:#6aa7ff}
 @media(prefers-reduced-motion:reduce){.abn,.fu,.fd,#bell.ring{animation:none}}
 
+
+
+/* ========================================================================== */
+/*  Akuratni Mobile Responsive (Clean, readable, zero horizontal overflow)    */
+/* ========================================================================== */
+
+html, body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+  position: relative;
+  -webkit-text-size-adjust: 100%;
+}
+
+canvas {
+  max-width: 100% !important;
+  height: auto;
+}
+
+#heroChart {
+  width: 100% !important;
+  height: auto !important;
+  max-width: 100% !important;
+}
+
+@media (max-width: 768px) {
+  *, *:before, *:after {
+    box-sizing: border-box;
+  }
+
+  /* Topbar */
+  .topbar {
+    height: 58px !important;
+    padding: 0 12px !important;
+  }
+  .brand {
+    font-size: 14px !important;
+    gap: 6px !important;
+  }
+  .brand .mark {
+    width: 26px !important;
+    height: 26px !important;
+    font-size: 12px !important;
+  }
+  .topright {
+    gap: 6px !important;
+  }
+  .topright select {
+    padding: 6px 8px !important;
+    font-size: 11px !important;
+  }
+  .topright .btn {
+    padding: 7px 10px !important;
+    font-size: 11px !important;
+  }
+  .live {
+    display: none !important;
+  }
+
+  /* Hero Section */
+  .hero {
+    padding: 35px 14px 15px !important;
+  }
+  .hero h1 {
+    font-size: 30px !important;
+    letter-spacing: -1.2px !important;
+    line-height: 1.15 !important;
+    margin: 14px auto !important;
+  }
+  .hero > p {
+    font-size: 13px !important;
+    line-height: 1.6 !important;
+    padding: 0 6px !important;
+  }
+  .actions {
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    gap: 8px !important;
+  }
+  .hero-card {
+    margin: 24px auto 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 16px !important;
+  }
+
+  /* 3D Monitor section */
+  .scrolly {
+    height: auto !important;
+    margin: 20px 0 !important;
+  }
+  .stage {
+    position: relative !important;
+    height: auto !important;
+    padding: 10px !important;
+  }
+  .monitor {
+    transform: none !important;
+    width: 100% !important;
+  }
+  .cap {
+    position: relative !important;
+    left: auto !important;
+    bottom: auto !important;
+    opacity: 1 !important;
+    margin-top: 14px !important;
+    text-align: center !important;
+  }
+  .cap h2 {
+    font-size: 22px !important;
+  }
+  .cap p {
+    font-size: 13px !important;
+  }
+
+  /* Ticker & Features */
+  .ticker {
+    grid-template-columns: repeat(2, 1fr) !important;
+    margin: 14px 10px !important;
+  }
+  .ticker > div {
+    padding: 10px 8px !important;
+    font-size: 11px !important;
+  }
+  .features {
+    padding: 30px 14px !important;
+  }
+  .features h2 {
+    font-size: 22px !important;
+  }
+  .feature-grid {
+    grid-template-columns: 1fr !important;
+    gap: 10px !important;
+  }
+  .feat4 {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+    margin: 24px auto !important;
+    padding: 0 14px !important;
+  }
+  .feat4 h3 {
+    font-size: 18px !important;
+  }
+  .feat4 p {
+    font-size: 13px !important;
+  }
+
+  /* Auth Box */
+  .auth {
+    padding: 24px 12px !important;
+    min-height: auto !important;
+  }
+  .authbox {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 24px 16px !important;
+    border-radius: 16px !important;
+  }
+  .authhero {
+    display: none !important;
+  }
+
+  /* Dashboard & Workspace */
+  .dashboard {
+    display: block !important;
+  }
+  .sidebar {
+    display: none !important;
+  }
+  .work {
+    padding: 14px 10px 40px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow-x: hidden !important;
+  }
+  .work h1 {
+    font-size: 22px !important;
+    letter-spacing: -0.5px !important;
+    margin: 4px 0 8px !important;
+  }
+  #mobileNav {
+    display: block !important;
+    width: 100% !important;
+    margin: 10px 0 16px !important;
+    padding: 10px 12px !important;
+    font-size: 13px !important;
+    background: #121415 !important;
+    border: 1px solid var(--line) !important;
+    border-radius: 8px !important;
+    color: var(--text) !important;
+  }
+
+  /* Panels & Cards */
+  .panel {
+    margin: 10px 0 !important;
+    padding: 14px 12px !important;
+    border-radius: 12px !important;
+    width: 100% !important;
+    overflow: hidden !important;
+  }
+  .panel-head {
+    padding: 8px 0 12px !important;
+  }
+  .panel > label,
+  .panel > input,
+  .panel > select,
+  .panel > form {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    width: 100% !important;
+  }
+  .panel > .actions {
+    margin: 10px 0 !important;
+  }
+  .two-col {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 10px !important;
+  }
+  .stats {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 8px !important;
+    margin: 12px 0 !important;
+  }
+  .stats article:last-child {
+    grid-column: span 2 !important;
+  }
+  .stats article {
+    padding: 12px !important;
+  }
+  .stats strong {
+    font-size: 20px !important;
+  }
+
+  /* Trading Terminal (Page Trade) */
+  .term {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 10px !important;
+    width: 100% !important;
+  }
+  #pairInfo, #chartPanel, #mktsPanel, #ordsPanel, #bookPanel, #orderPanel {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+  #chart {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: 220px !important;
+  }
+  .cw {
+    flex-wrap: wrap !important;
+    gap: 6px !important;
+  }
+  .cw .mini {
+    display: inline-block !important;
+    font-size: 10px !important;
+    margin-right: 4px !important;
+  }
+  #tfBar {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    padding-bottom: 4px !important;
+    gap: 4px !important;
+  }
+  #tfBar button {
+    flex-shrink: 0 !important;
+    padding: 4px 8px !important;
+    font-size: 11px !important;
+  }
+  .ohlc {
+    font-size: 10px !important;
+    overflow-x: auto !important;
+    white-space: nowrap !important;
+  }
+  .ordbody {
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+  }
+  .tr {
+    min-width: 480px !important;
+  }
+
+  /* Markets list & Portfolio */
+  .mgrid {
+    grid-template-columns: 1fr !important;
+    gap: 10px !important;
+  }
+  .prow {
+    grid-template-columns: 24px 1.4fr 1fr auto !important;
+    gap: 6px !important;
+    padding: 10px 8px !important;
+    font-size: 12px !important;
+  }
+  .prow .sp, .prow .hv, .prow .rk {
+    display: none !important;
+  }
+  .kpis {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 8px !important;
+  }
+  .kpi {
+    padding: 10px !important;
+  }
+  .kpi b {
+    font-size: 16px !important;
+  }
+
+  /* Floating bots / theme button */
+  .botbtn {
+    bottom: 14px !important;
+    right: 14px !important;
+    width: 42px !important;
+    height: 42px !important;
+    font-size: 18px !important;
+  }
+  .themebtn {
+    bottom: 64px !important;
+    right: 14px !important;
+  }
+  .bot {
+    left: 12px !important;
+    right: 12px !important;
+    width: auto !important;
+    max-width: calc(100% - 24px) !important;
+    bottom: 70px !important;
+  }
+}
