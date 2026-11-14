@@ -1,0 +1,17 @@
+window.mbTheme=m=>{const e=m==="auto"?(matchMedia("(prefers-color-scheme: light)").matches?"light":"night"):m;document.documentElement.dataset.theme=e;localStorage.setItem("mb-theme2",m);dispatchEvent(new Event("themechange"))};
+mbTheme(localStorage.getItem("mb-theme2")||"ocean");matchMedia("(prefers-color-scheme: light)").addEventListener("change",()=>{if(localStorage.getItem("mb-theme2")==="auto")mbTheme("auto")});
+(()=>{const R=window.mbRain={speed:+(localStorage.getItem("mb-speed")||1),play:localStorage.getItem("mb-play")!=="0"};let px=-1,py=-1;
+addEventListener("pointermove",e=>{px=e.clientX;py=e.clientY});document.addEventListener("mouseleave",()=>px=-1);
+addEventListener("pointerdown",e=>{if(!R.play||c.style.display==="none"||!document.body.classList.contains("rain-on"))return;for(let k=0;k<70;k++){const a=Math.random()*6.283,d=Math.random()*150;x.fillStyle=`rgb(${P()[2]})`;x.fillText(Math.random()<.5?"1":"0",Math.floor((e.clientX+Math.cos(a)*d)/sz)*sz,Math.floor((e.clientY+Math.sin(a)*d)/sz)*sz)}});
+const P=()=>document.documentElement.dataset.theme==="ocean"?["10,23,48","160,190,240","255,255,255"]:document.documentElement.dataset.theme==="light"?["244,245,246","25,28,30","0,0,0"]:["9,10,11","215,218,218","255,255,255"];const c=document.getElementById("rain"),x=c.getContext("2d"),sz=18,still=matchMedia("(prefers-reduced-motion:reduce)").matches;let w,h,cols,y,sp;
+function fit(){w=c.width=innerWidth;h=c.height=innerHeight;cols=Math.ceil(w/sz);y=Array.from({length:cols},()=>Math.random()*h/sz);sp=Array.from({length:cols},()=>.12+Math.random()*.3);x.fillStyle=`rgb(${P()[0]})`;x.fillRect(0,0,w,h)}
+function frame(){if(c.style.display==="none"||!document.body.classList.contains("rain-on"))return;x.fillStyle=`rgba(${P()[0]},.07)`;x.fillRect(0,0,w,h);x.font=(sz-3)+"px 'DM Mono',monospace";if(R.play&&px>-1)for(let k=0;k<5;k++){const a=Math.random()*6.283,d=Math.random()*90;x.fillStyle=`rgb(${P()[2]})`;x.fillText(Math.random()<.5?"1":"0",Math.floor((px+Math.cos(a)*d)/sz)*sz,Math.floor((py+Math.sin(a)*d)/sz)*sz)}
+for(let i=0;i<cols;i++){const r=Math.floor(y[i]);y[i]+=sp[i]*R.speed;if(Math.floor(y[i])===r)continue;x.fillStyle=Math.random()<.06?`rgb(${P()[2]})`:`rgba(${P()[1]},${.16+Math.random()*.22})`;x.fillText(Math.random()<.5?"1":"0",i*sz,r*sz);if(r*sz>h&&Math.random()>.97)y[i]=0}}
+if(localStorage.getItem("mb-rain")==="0")c.style.display="none";fit();addEventListener("resize",fit);addEventListener("themechange",fit);if(still){for(let k=0;k<200;k++)frame()}else setInterval(frame,60)})();
+
+window.binChart=cv=>{const x=cv.getContext("2d"),W=cv.width,H=cv.height,sz=14,cols=Math.floor(W/sz),rows=Math.floor(H/sz);let t=0;const g=Array.from({length:cols},()=>Array.from({length:rows},()=>Math.random()<.5?"1":"0"));x.font=(sz-2)+"px 'DM Mono',monospace";
+const cur=c=>{const u=c/cols;return rows*(.8-.5*u+.07*Math.sin(u*9+t)+.035*Math.sin(u*23-t*1.7))};
+const fr=()=>{if(!cv.offsetParent)return;const fg=document.documentElement.dataset.theme==="light"?"0,0,0":"255,255,255";x.clearRect(0,0,W,H);t+=.035;for(let k=0;k<cols*rows*.02;k++)g[Math.random()*cols|0][Math.random()*rows|0]=Math.random()<.5?"1":"0";
+for(let c=0;c<cols;c++){const y=cur(c);for(let r=0;r<rows;r++){const d=r-y,a=d<-1?0:d<1.2?.95:Math.max(0,.42-d*.035);if(a>0){x.fillStyle=`rgba(${fg},${a})`;x.fillText(g[c][r],c*sz,r*sz+sz)}}}};
+fr();if(!matchMedia("(prefers-reduced-motion:reduce)").matches)setInterval(fr,90)};
+document.querySelectorAll("canvas.bin").forEach(binChart);
